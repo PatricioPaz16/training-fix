@@ -1,0 +1,10 @@
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Listado de Productos</h1>
+
+    @for (p of productos; track p.id) {
+    <div class="p-4 mb-2 bg-white rounded shadow-sm border-l-4 border-blue-500">
+        <h3 class="text-lg font-semibold">{{ p.nombre }}</h3>
+        <p class="text-gray-600">
+        Precio: ${{ p.precio }} — Stock: {{ p.stock }}
+        </p>
+    </div>
+    } 
