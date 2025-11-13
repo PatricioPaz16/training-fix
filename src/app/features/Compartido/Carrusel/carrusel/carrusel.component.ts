@@ -14,6 +14,10 @@ import { CardModule } from 'primeng/card';
 export class CarruselComponent implements OnInit{
 
   @Input() Datos :Object[]=[];
+  @Input() cantVisible: number = 3;
+  @Input() Nscroll: number = 3;
+  @Input() showIndicator: boolean = true;
+  @Input() showNavigator: boolean = true;
   ngOnInit(): void {
     
   }

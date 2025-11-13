@@ -1,7 +1,28 @@
-<p-carousel [value]="Datos" [numVisible]="3" [numScroll]="3" [circular]="false">
-    <ng-template let-product #item>
-        <p-card>
-            
-        </p-card>
-    </ng-template>
+<p-carousel 
+  [value]="Datos" 
+  [numVisible]="cantVisible" 
+  [numScroll]="Nscroll" 
+  [circular]="true" 
+  [autoplayInterval]="3000"
+  [showIndicators]="showIndicator"
+  [showNavigators]="showIndicator">
+
+  <ng-template pTemplate="item" let-product>
+    <p-card 
+      [header]="product.nombre" 
+      [subheader]="'Precio: $' + product.precio"
+      styleClass="shadow-lg rounded-lg overflow-hidden">
+      <div class="p-d-flex p-flex-column p-ai-center">
+        <img
+          [src]="'img/' + product.id + '.jpg'"
+          alt="{{ product.nombre }}"
+          class="product-img"
+          width="300">
+        <p class="mt-3 mb-1 text-sm text-gray-600">Stock disponible: {{ product.stock }}</p>
+        <p-button pButton label="Ver detalle" icon="pi pi-search" class="p-button-sm mt-2"></p-button>
+        <p-button label="Comprar" class="w-full" styleClass="w-full"  severity= success/>
+      </div>
+
+    </p-card>
+  </ng-template>
 </p-carousel>

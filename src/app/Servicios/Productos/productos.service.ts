@@ -39,8 +39,10 @@ export class ProductosService {
     return this.http.get<Producto[]>(this.apiURL);
   }
 
-  Buscar(ventaId: number = 1): Observable<Venta>
-  {
-    return this.http.get<Venta>(`http://localhost:3000/ventas/${ventaId}?_expand=producto&_expand=cliente`);
-  }
+  Buscar(): Observable<Venta[]> {
+  return this.http.get<Venta[]>(
+    'http://localhost:3000/ventas?_expand=producto&_expand=cliente'
+  );
+}
+
 }

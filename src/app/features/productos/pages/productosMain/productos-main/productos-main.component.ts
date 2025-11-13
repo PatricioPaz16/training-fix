@@ -6,10 +6,11 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import Swal from 'sweetalert2';
+import { CarruselComponent } from "../../../../Compartido/Carrusel/carrusel/carrusel.component";
 
 @Component({
   selector: 'app-productos-main',
-  imports: [MatSidenavModule, MatIconModule],
+  imports: [MatSidenavModule, MatIconModule, CarruselComponent],
   templateUrl: './productos-main.component.html',
   styleUrl: './productos-main.component.css',
 })
@@ -40,16 +41,6 @@ export class ProductosMainComponent implements OnInit {
           icon: 'error',
           confirmButtonText: 'Cerrar',
         });
-      },
-    });
-
-    this.BuscarVentas();
-  }
-
-  BuscarVentas(): void {
-    this.productosService.Buscar(1).subscribe({
-      next: (data) => {
-        console.log(data);
       },
     });
   }
