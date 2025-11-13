@@ -46,3 +46,7 @@ export class ProductosService {
 }
 
 }
+/* Buscar(): Observable<Venta[]> {
+  return this.http.get<Venta[]>(
+    'http://localhost:3000/ventas?_expand=producto&_expand=cliente'
+  );*/
