@@ -1,0 +1,43 @@
+/* Estilos personalizados para los diálogos */
+::ng-deep .custom-dialog .p-dialog {
+  background-color: white !important;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: none;
+  overflow: hidden;
+}
+
+::ng-deep .custom-dialog .p-dialog-header {
+  background-color: #f0fdff !important;
+  border-bottom: 1px solid #cffafe;
+  padding: 1.5rem;
+}
+
+::ng-deep .custom-dialog .p-dialog-content {
+  background-color: white !important;
+  padding: 1.5rem;
+}
+
+::ng-deep .custom-dialog .p-dialog-footer {
+  background-color: #f9fafb !important;
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+}
+
+::ng-deep .custom-dialog .p-dialog-header-close {
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+::ng-deep .custom-dialog .p-dialog-header-close:hover {
+  color: #374151;
+}
+::ng-deep .p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.hover\:bg-gray-50:hover {
+  transition: all 0.2s ease;
+}
+button {
+  transition: all 0.2s ease;
+}

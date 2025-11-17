@@ -1,16 +1,96 @@
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Listado de Productos</h1>
-
-    @for (p of productos; track p.id) {
-    <div class="p-4 mb-2 bg-white rounded shadow-sm border-l-4 border-blue-500">
-        <h3 class="text-lg font-semibold">{{ p.nombre }}</h3>
-        <p class="text-gray-600">
-        Precio: ${{ p.precio }} — Stock: {{ p.stock }}
-        </p>
+<div class="min-h-screen bg-gray-50">
+  <div class="bg-gradient-to-r from-cyan-700 to-cyan-800 text-white p-8 shadow-lg mb-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center space-x-4 mb-6">
+        <div class="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-3xl font-semibold">Gestión de Productos</h1>
+          <p class="text-cyan-100 text-base">Sistema de administración de inventario</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-cyan-100">Total Productos</p>
+              <p class="text-2xl font-semibold text-white">{{ productos.length }}</p>
+            </div>
+            <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-medium text-sm">{{ productos.length }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-cyan-100">Valor Promedio</p>
+              <p class="text-2xl font-semibold text-white">${{ getPromedioPrecios() | number:'1.2-2' }}</p>
+            </div>
+            <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-medium text-xs">$</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-cyan-100">Stock Bajo</p>
+              <p class="text-2xl font-semibold text-white">{{ getProductosBajoStock() }}</p>
+            </div>
+            <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-medium text-sm">{{ getProductosBajoStock() }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-}
+  </div>
 
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+        <svg class="w-5 h-5 mr-2 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        Vista Rápida de Productos
+      </h2>
+      <app-carrusel
+        class="block"
+        [Datos]="productos">
+      </app-carrusel>
+    </div>
 
-<app-carrusel
-class="h-[60px]"
-[Datos]="productos"></app-carrusel>
+    <div class="bg-white rounded-lg shadow-md border border-gray-200">
+      <div class="flex justify-between items-center p-6 border-b border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+          </svg>
+          Listado de Productos
+        </h2>
+        <button class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200">
+          <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
+          Nuevo Producto
+        </button>
+      </div>
+      
+      <div class="p-6">
+        <app-table
+          [dataSource]="productos"
+          [displayedColumns]="displayedColumns"
+          [columnHeaders]="columnHeaders"
+          (onEdit)="editarProducto($event)"
+          (onView)="verProducto($event)">
+        </app-table>
+      </div>
+    </div>
+  </div>
+</div>
     
