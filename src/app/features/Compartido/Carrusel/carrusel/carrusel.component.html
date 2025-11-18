@@ -5,24 +5,53 @@
   [circular]="true" 
   [autoplayInterval]="3000"
   [showIndicators]="showIndicator"
-  [showNavigators]="showIndicator">
+  [showNavigators]="showIndicator"
+  styleClass="carousel-container">
 
   <ng-template pTemplate="item" let-product>
-    <p-card 
-      [header]="product.nombre" 
-      [subheader]="'Precio: $' + product.precio"
-      styleClass="shadow-lg rounded-lg overflow-hidden">
-      <div class="p-d-flex p-flex-column p-ai-center">
-        <img
-          [src]="'img/' + product.id + '.jpg'"
-          alt="{{ product.nombre }}"
-          class="product-img"
-          width="300">
-        <p class="mt-3 mb-1 text-sm text-gray-600">Stock disponible: {{ product.stock }}</p>
-        <p-button pButton label="Ver detalle" icon="pi pi-search" class="p-button-sm mt-2"></p-button>
-        <p-button label="Comprar" class="w-full" styleClass="w-full"  severity= success/>
+    
+    <div class="rounded-3xl h-[500px] p-4 shadow-md bg-[#FFFDEA] border border-[#FADDD8] 
+                flex flex-col items-center text-center transition-all duration-200 hover:shadow-xl">
+
+      <img
+        [src]="'img/' + product.id + '.jpg'"
+        alt="{{ product.nombre }}"
+        class="rounded-xl border-2 border-[#FFE5E0] object-cover"
+        width="260"
+        height="180"
+      />
+
+      <h3 class="mt-3 text-xl font-semibold text-[#FF7D59]">
+        {{ product.nombre }}
+      </h3>
+
+      <p class="text-[#2C2C34] text-sm mt-1">
+        Precio: ${{ product.precio }}
+      </p>
+
+      <p class="text-xs text-[#9980ED] font-medium mt-2">
+        Stock disponible: {{ product.stock }}
+      </p>
+
+      <div class="mt-4 w-full flex flex-col gap-2">
+
+        <button
+          pButton
+          icon="pi pi-search"
+          label="Ver detalle"
+          class="p-button-sm w-full 
+                 bg-[#FFE5E0] text-[#2C2C34] border border-[#FFBDE8] rounded-xl"
+        ></button>
+
+        <button
+          pButton
+          label="Comprar"
+          class="w-full p-button-sm bg-[#FF7D59] text-white font-semibold rounded-xl border-0"
+        ></button>
+
       </div>
 
-    </p-card>
+    </div>
+
   </ng-template>
 </p-carousel>

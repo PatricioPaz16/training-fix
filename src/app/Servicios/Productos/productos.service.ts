@@ -44,9 +44,12 @@ export class ProductosService {
     'http://localhost:3000/ventas?_expand=producto&_expand=cliente'
   );
 }
-
+  RegistrarProducto(Producto:Producto){
+    return this.http.post(this.apiURL, Producto)
+  }
 }
 /* Buscar(): Observable<Venta[]> {
   return this.http.get<Venta[]>(
     'http://localhost:3000/ventas?_expand=producto&_expand=cliente'
   );*/
+

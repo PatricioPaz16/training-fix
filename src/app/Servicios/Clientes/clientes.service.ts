@@ -19,4 +19,8 @@ export class ClientesService {
   getClientes(): Observable<Cliente[]>{
     return this.http.get<Producto[]>(this.apiURL);
   }
+
+  registstrarCliente(Cliente:Cliente){
+    return this.http.post(this.apiURL, Cliente)
+  }
 }

@@ -7,20 +7,39 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import Swal from 'sweetalert2';
 import { CarruselComponent } from "../../../../Compartido/Carrusel/carrusel/carrusel.component";
+import { ButtonModule } from 'primeng/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-productos-main',
-  imports: [MatSidenavModule, MatIconModule, CarruselComponent],
+  imports: [MatSidenavModule, MatIconModule, CarruselComponent, ButtonModule, MatDialogModule],
   templateUrl: './productos-main.component.html',
   styleUrl: './productos-main.component.css',
 })
 export class ProductosMainComponent implements OnInit {
   productos: Producto[] = [];
-
+  modal : boolean= false;
   constructor(private productosService: ProductosService) {}
 
   ngOnInit(): void {
-    this.productosService.getProductos().subscribe({
+    this.cargardg();
+  }
+agregarProducto(){
+  const productoEjemplo: Producto = {
+  id: 101,
+  nombre: "Auriculares Bluetooth Sony WH-CH510",
+  categoriaId: 5,
+  precio: 23999,
+  stock: 12
+};
+  this.productosService.RegistrarProducto(productoEjemplo)
+  console.log(productoEjemplo);
+  this.productos.concat(productoEjemplo);
+}
+
+cargardg(){
+  this.productosService.getProductos().subscribe({
       next: (data) => {
         this.productos = data;
 
@@ -43,5 +62,5 @@ export class ProductosMainComponent implements OnInit {
         });
       },
     });
-  }
+}
 }

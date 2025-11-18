@@ -1,19 +1,72 @@
-<mat-drawer-container class="h-screen">
-    <mat-drawer #drawer mode="side" opened class="w-64 bg-gray-800 text-white p-4">
-    <h2 class="text-2xl font-bold mb-6">Menú</h2>
-        <ul class="space-y-2">
-            <li><a routerLink="/dashboards" routerLinkActive="bg-gray-700" class="block p-2 rounded">DashBoards</a></li>
-            <li><a routerLink="/productos" routerLinkActive="bg-gray-700" class="block p-2 rounded">Productos</a></li>
-            <li><a routerLink="/clientes" routerLinkActive="bg-gray-700" class="block p-2 rounded">Clientes</a></li>
-            <li><a routerLink="/ventas" routerLinkActive="bg-gray-700" class="block p-2 rounded">Ventas</a></li>
-            <li><a routerLink="/compras" routerLinkActive="bg-gray-700" class="block p-2 rounded">Compras</a></li>
-        </ul>
-    </mat-drawer>
+<mat-drawer-container class="h-screen bg-[#FFFDEA]">
 
-    <mat-drawer-content class="p-8 bg-gray-50 min-h-screen">
-        <button mat-icon-button (click)="drawer.toggle()" class="mb-4 md:hidden">
-            <mat-icon fontIcon="menu"></mat-icon>
-        </button>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
+<mat-drawer
+    #drawer
+    mode="side"
+    opened
+    class="w-64 p-6 shadow-md rounded-r-3xl border-r border-[#FADDD8] bg-[#FFFDEA]"
+>
+
+    <h2 class="text-2xl font-bold mb-8 text-[#FF7D59] text-center">
+    Menú 
+    </h2>
+
+    <ul class="space-y-3">
+
+    <li>
+        <a routerLink="/dashboards"
+        routerLinkActive="active-link"
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
+        Dashboards
+        </a>
+    </li>
+
+    <li>
+        <a routerLink="/productos"
+        routerLinkActive="active-link"
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
+        Productos
+        </a>
+    </li>
+
+    <li>
+        <a routerLink="/clientes"
+        routerLinkActive="active-link"
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
+        Clientes
+        </a>
+    </li>
+
+    <li>
+        <a routerLink="/ventas"
+        routerLinkActive="active-link"
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
+        Ventas
+        </a>
+    </li>
+
+    <li>
+        <a routerLink="/compras"
+        routerLinkActive="active-link"
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
+        Compras
+        </a>
+    </li>
+
+    </ul>
+</mat-drawer>
+
+<mat-drawer-content class="p-8 min-h-screen bg-[#FFF7F5]">
+
+    <button
+    mat-icon-button
+    (click)="drawer.toggle()"
+    class="mb-4 md:hidden text-[#FF7D59]"
+    >
+    <mat-icon fontIcon="menu"></mat-icon>
+    </button>
+
+    <router-outlet></router-outlet>
+</mat-drawer-content>
+
 </mat-drawer-container>

@@ -1,16 +1,14 @@
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Listado de Productos</h1>
+<div class="flex items-center justify-between mb-6">
+    <h1 class="text-3xl font-bold text-gray-800">Listado de Productos</h1>
 
-    @for (p of productos; track p.id) {
-    <div class="p-4 mb-2 bg-white rounded shadow-sm border-l-4 border-blue-500">
-        <h3 class="text-lg font-semibold">{{ p.nombre }}</h3>
-        <p class="text-gray-600">
-        Precio: ${{ p.precio }} — Stock: {{ p.stock }}
-        </p>
-    </div>
-}
+    <button class="bg-green-300 hover:bg-green-400 transition rounded-3xl p-3 text-xl" (click)="agregarProducto()">
+        Nuevo Producto
+    </button>
+</div>
 
 
-<app-carrusel
-class="h-[60px]"
-[Datos]="productos"></app-carrusel>
+
+    <app-carrusel
+    class="h-[60px]"
+    [Datos]="productos"></app-carrusel>
     
