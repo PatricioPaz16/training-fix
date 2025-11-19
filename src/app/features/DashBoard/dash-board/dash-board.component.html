@@ -1,1 +1,27 @@
-<p>dash-board works!</p>
+<div class="flex gap-6 w-full justify-center items-start">
+
+  <div class="bg-white shadow rounded-2xl p-4 w-1/2 h-[380px]">
+    <app-barchart 
+      [variables]="labels"
+      [data]="values"
+      class="w-full h-full">
+    </app-barchart>
+  </div>
+
+  <div class="bg-white shadow rounded-2xl p-4 w-1/2 h-[380px] max-w-[300px]">
+    <app-piechart 
+      [data]="labels"
+      [amount]="values"
+      class="w-full h-full">
+    </app-piechart>
+  </div>
+
+
+
+</div>
+
+<div class="w-full flex justify-center mt-6">
+  <div class="bg-white shadow rounded-2xl w-[800px] h-[450px] p-6 flex justify-center items-center">
+    <app-linechart class="w-full h-full"></app-linechart>
+  </div>
+</div>

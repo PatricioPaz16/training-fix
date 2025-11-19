@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ProductosMainComponent } from './features/productos/pages/productosMain/productos-main/productos-main.component';
 import { ListaClientesComponent } from './features/clientes/pages/ListaClientes/lista-clientes/lista-clientes.component';
 import { VentasComponent } from './features/Ventas/ventas/ventas.component';
+import { DashBoardComponent } from './features/DashBoard/dash-board/dash-board.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
   {
     path: 'clientes',
     component: ListaClientesComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashBoardComponent
   },
   {
     path: '',

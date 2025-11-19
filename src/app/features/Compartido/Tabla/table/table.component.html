@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
 
-    <th mat-header-cell *matHeaderCellDef class="header-pastel">
+    <th mat-header-cell *matHeaderCellDef class="text-pink-600 bg-gray-50 rounded-3xl">
       {{ columnHeaders[column] || (column | titlecase) }}
     </th>
 
@@ -31,8 +31,7 @@
 
   <ng-container *ngIf="selectedRow">
 
-    <!-- HEADER -->
-    <div class="p-4 pb-1 text-center">
+    <div class="p-4 pb-1 text-center font-semibold text-gray-800">
       <h2 class="m-0 text-2xl font-bold text-[#FF7D59]">
         Detalles del Registro
       </h2>
@@ -40,13 +39,10 @@
         Información seleccionada
       </p>
     </div>
-
-    <!-- FORM VERTICAL -->
     <div class="p-6 flex flex-col gap-5">
 
       <div *ngFor="let col of displayedColumns" class="flex flex-col gap-2">
 
-        <!-- LABEL -->
         <label class="text-sm font-semibold text-[#2C2C34] uppercase tracking-wide">
           {{ columnHeaders[col] || col }}
         </label>
