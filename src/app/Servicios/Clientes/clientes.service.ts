@@ -12,7 +12,7 @@ export interface Cliente{
   providedIn: 'root'
 })
 export class ClientesService {
-  private apiURL = 'http://localhost:3000/productos'; 
+  private apiURL = 'http://localhost:3000/clientes'; 
 
   constructor(private http: HttpClient) { }
 

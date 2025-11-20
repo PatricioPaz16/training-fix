@@ -1,11 +1,4 @@
-import { 
-  Component, 
-  AfterViewInit, 
-  ViewChild, 
-  ElementRef, 
-  Input, 
-  input
-} from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -17,42 +10,47 @@ Chart.register(...registerables);
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css']
 })
-export class BarchartComponent implements AfterViewInit {
+export class BarchartComponent implements OnChanges {
 
   @Input() data!: number[];
-  @Input() variables!:string[];
+  @Input() variables!: string[];
 
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
 
-  ngAfterViewInit(): void {
+  chart!: Chart;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.chart) this.chart.destroy();
+    if (!this.chartCanvas) return;
+
     const ctx = this.chartCanvas.nativeElement.getContext('2d');
 
-    new Chart(ctx!, {
+    this.chart = new Chart(ctx!, {
       type: 'bar',
       data: {
         labels: this.variables,
         datasets: [
           {
-            label: "cantidad",
-            backgroundColor: ["lightblue", "lightgreen", "pink", "yellow"],
-            data: this.data,
-            yAxisID: 'y2'
+            label: 'Cantidad',
+            backgroundColor: ['rgba(250, 42, 136, 0.2)',
+              'rgba(125, 42, 250, 0.2)',
+              'rgba(42, 226, 250, 0.2)',
+              'rgba(42, 250, 80, 0.2)',
+              'rgba(243, 250, 42, 0.2)',
+            ],
+            borderWidth: 2,
+            borderColor: [
+              'rgba(250, 42, 136)',
+              'rgba(125, 42, 250)',
+              'rgba(42, 226, 250)',
+              'rgba(42, 250, 80)',
+              'rgba(243, 250, 42)',
+            ],
+            data: this.data
           }
         ]
       },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-          y2: {
-            beginAtZero: true,
-            position: 'right',
-            grid: { drawOnChartArea: false }
-          }
-        }
-      }
+      options: { responsive: true }
     });
   }
 }

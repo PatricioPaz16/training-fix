@@ -1,8 +1,8 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full tabla-pastel">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full tabla-pastel rounded-3xl mt-6">
 
-  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column" class="bg-pink-300 text-pink-600 border-l-0 ">
 
-    <th mat-header-cell *matHeaderCellDef class="text-pink-600 bg-gray-50 rounded-3xl">
+    <th mat-header-cell *matHeaderCellDef class="text-pink-600 !bg-pink-300">
       {{ columnHeaders[column] || (column | titlecase) }}
     </th>
 
@@ -26,16 +26,16 @@
   [modal]="true"
   [dismissableMask]="true"
   header=""
-  [style]="{ width: '600px', background: '#FFFDEA' }"
+  [style]="{ width: '600px', background: '#faedf3' }"
   styleClass="rounded-3xl shadow-3 pastel-modal">
 
   <ng-container *ngIf="selectedRow">
 
     <div class="p-4 pb-1 text-center font-semibold text-gray-800">
-      <h2 class="m-0 text-2xl font-bold text-[#FF7D59]">
+      <h2 class="m-0 text-2xl font-bold text-pink-600">
         Detalles del Registro
       </h2>
-      <p class="mt-1 text-sm text-[#9980ED]">
+      <p class="mt-1 text-sm text-pink-800">
         Información seleccionada
       </p>
     </div>
@@ -47,7 +47,6 @@
           {{ columnHeaders[col] || col }}
         </label>
 
-        <!-- CAMPO -->
         <input 
           type="text"
           class="p-3 rounded-xl border border-[#FADDD8] bg-white text-[#2C2C34] shadow-sm"

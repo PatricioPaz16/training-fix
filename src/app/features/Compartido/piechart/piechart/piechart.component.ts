@@ -56,9 +56,11 @@ export class PiechartComponent implements AfterViewInit, OnChanges {
         datasets: [
           {
             label: "Cantidad",
-            backgroundColor: [
-              "#FF7D59", "#9980ED", "#3cba9f", 
-              "#e8c3b9", "#c45850", "#6EE7B7"
+            backgroundColor: ['rgba(250, 42, 136, 0.4)',
+              'rgba(125, 42, 250, 0.4)',
+              'rgba(42, 226, 250, 0.4)',
+              'rgba(42, 250, 80, 0.4)',
+              'rgba(243, 250, 42, 0.4)',
             ],
             data: this.amount
           }

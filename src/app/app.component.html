@@ -7,7 +7,7 @@
     class="w-64 p-6 shadow-md rounded-r-3xl border-r border-[#FADDD8] bg-[#FFFDEA]"
 >
 
-    <h2 class="text-2xl font-bold mb-8 text-[#FF7D59] text-center">
+    <h2 class="text-2xl font-bold mb-8 text-pink-600 text-center">
     Menú 
     </h2>
 
@@ -16,40 +16,32 @@
     <li>
         <a routerLink="/dashboard"
         routerLinkActive="active-link"
-        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
-        Dashboards
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-pink-300  hover:text-pink-600 transition">
+        <span class="pi pi-images"></span> Dashboards
         </a>
     </li>
 
     <li>
         <a routerLink="/productos"
         routerLinkActive="active-link"
-        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
-        Productos
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34]  hover:bg-pink-300  hover:text-pink-600 transition">
+        <span class="pi pi-tags"></span> Productos
         </a>
     </li>
 
     <li>
         <a routerLink="/clientes"
         routerLinkActive="active-link"
-        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
-        Clientes
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34]  hover:bg-pink-300  hover:text-pink-600  transition">
+        <span class="pi pi-address-book"></span> Clientes
         </a>
     </li>
 
     <li>
         <a routerLink="/ventas"
         routerLinkActive="active-link"
-        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
-        Ventas
-        </a>
-    </li>
-
-    <li>
-        <a routerLink="/compras"
-        routerLinkActive="active-link"
-        class="block p-3 rounded-2xl font-medium text-[#2C2C34] hover:bg-[#FFE5E0] transition">
-        Compras
+        class="block p-3 rounded-2xl font-medium text-[#2C2C34]  hover:bg-pink-300 hover:text-pink-600 transition">
+        <span class="pi pi-shopping-bag"></span> Ventas
         </a>
     </li>
 
@@ -61,9 +53,9 @@
     <button
     mat-icon-button
     (click)="drawer.toggle()"
-    class="mb-4 md:hidden text-[#FF7D59]"
+    class="bg-pink-300 rounded-3xl w-[30px] h-[30px]"
     >
-    <mat-icon fontIcon="menu"></mat-icon>
+    <span class="pi pi-bars"></span>
     </button>
 
     <router-outlet></router-outlet>

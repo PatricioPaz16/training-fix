@@ -65,6 +65,19 @@ export class ProductosService {
   );
 }
 
+BuscarPorFecha(fechaInicio?: string, fechaFin?: string): Observable<Venta[]> {
+
+  let url = 'http://localhost:3000/ventas?_expand=producto&_expand=cliente';
+  if (fechaInicio) {
+    url += `&fecha_gte=${fechaInicio}`;
+  }
+  if (fechaFin) {
+    url += `&fecha_lte=${fechaFin}`;
+  }
+  return this.http.get<Venta[]>(url);
+}
+
+
 }
 /* Buscar(): Observable<Venta[]> {
   return this.http.get<Venta[]>(
